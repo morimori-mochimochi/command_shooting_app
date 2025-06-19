@@ -1,0 +1,19 @@
+FROM ruby:3.4.2
+
+# 必要なパッケージのインストール
+RUN apt-get update -qq && apt-get install -y nodejs npm default-mysql-client && npm install -g yarn
+
+# 作業ディレクトリ作成
+WORKDIR /app
+
+# Gemfileをコピーしてbundle install
+COPY ./Gemfile ./Gemfile.lock ./
+RUN bundle install
+
+# アプリコードをコピー
+COPY . .
+
+# ポート解放
+EXPOSE 3000
+
+CMD ["bash", "-c", "rm -f temp/pids/server.pid", && bundle exec rails s -b 0.0.0.0"]
