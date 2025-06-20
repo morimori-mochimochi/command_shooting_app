@@ -128,11 +128,14 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
 
 - User（id, email, nickname, encrypted_password, created_at, updated_at ）
 - Game_session（id, user_id, duration, play_at, created_at, updated_at）
-- Answer（id, game_session,command_id, user_input, time_taken, created_at, updated_at）
+- Game_session_command(id, command_id, game_session_id)
 - Command (id, body, description, created_at, updated_at)
 - Score (id, user_id, game_session_id, duration)
 
 ---
+
+## コントローラの構成
+
 
 ## 5. 検討中の仕様・課題
 

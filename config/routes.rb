@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'game_sessions/new'
   get 'rankings/index'
   devise_for :users
   root 'commands#show'

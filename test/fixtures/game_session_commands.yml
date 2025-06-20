@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: MyString
+  game_session: one
+  commands: one
+
+two:
+  value: MyString
+  game_session: two
+  commands: two
