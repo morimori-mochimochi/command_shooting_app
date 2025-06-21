@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :game_sessions
 
   has_one :scores, dependent: :destroy
+
+  validates :nickname, presence: false, length: { maximum: 20 }
 end

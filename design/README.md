@@ -127,10 +127,9 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
 ## 4. モデル構成（ラフ）
 
 - User（id, email, nickname, encrypted_password, created_at, updated_at ）
-- Game_session（id, user_id, duration, play_at, created_at, updated_at）
+- Game_session（id, user_id, duration, created_at, updated_at）
 - Game_session_command(id, command_id, game_session_id)
 - Command (id, body, description, created_at, updated_at)
-- Score (id, user_id, game_session_id, duration)
 
 ---
 
@@ -160,3 +159,7 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
 
 - MVP（最小実用アプリ）に集中し、機能を絞る
 - タイピング速度はms単位で記録（10回平均なども検討）
+
+ docker compose run web rails generate migration AddDurationToScores duration:float
+ docker compose run web rails generate controller Rankings index
+ docker compose run web rails generate model Game_session value:integer user:references
