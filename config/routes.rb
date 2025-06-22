@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
-  get 'game_sessions/new'
-  get 'rankings/index'
+  root to: "top#index"
+
+  get 'standby', to: 'top#standby'
+  resources :game_sessions, only: [:new, :show] do
+    member do
+      get :result
+    end
+  end
+  get 'rankings', to: 'rankings#index'
+
   devise_for :users
-  root 'commands#show'
+  
   resources :commands, only: [:index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

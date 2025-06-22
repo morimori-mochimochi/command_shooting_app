@@ -1,0 +1,11 @@
+<h1> コマンドスナイパー </h1>
+
+<p> 一番かっこよくコマンド早打ちできる人は誰か...そんなNo.1を決めるアプリ </p>
+
+<% if user_signed_in? %>
+  <p> ようこそ、<%= current_user.nickname %> さん！</p>
+  <%= link_to "早打ちする", standby_path, class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "早打ちする", standby_path, class: "btn btn-primary" %>
+  <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+<% end %>
