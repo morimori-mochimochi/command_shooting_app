@@ -1,13 +1,14 @@
 <%= render "timer" %>
 
+<% @commands.each do |command| %>
 <h2> このコマンドを入力してください: </h2>
-<p><strong><%= @command.body %></strong></p>
-<p><storng><%= @command.description %></p>
+<p><strong><%= command.body %></strong></p>
+<p><storng><%= command.description %></p>
 
 <input type= "text"
        data-controller = "answer"
-       data-answer-correct-value = "<%= @command.body %>"
+       data-answer-correct-value = "<%= command.body %>"
        data-action="keyup->answer#check" 
        placeholder = "ここにコマンドを入力..." />  
-
 <p id="result" style="margin-top: 1em; color: green;"></p>
+<% end %>
