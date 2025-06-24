@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :game_sessions, only: [:new, :show] do
     member do
       get :result
-      get :finish
+      patch :finish
     end
   end
   get 'rankings', to: 'rankings#index'

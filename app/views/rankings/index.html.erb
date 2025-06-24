@@ -3,7 +3,7 @@
 <ol>
 <% @scores.each_with_index do |score, index| %>
   <li>
-    <%= "#{index+1}位: #{score.duration}秒  -#{score.user.nickname} %>
+    <%= "#{index+1}位: #{score.duration}秒  -#{score.user.nickname}" %>
   </li>
 <% end %>
 </ol>
