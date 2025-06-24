@@ -1,0 +1,9 @@
+<div id="finish-message" style="text-align:center; font-size:2em; marign-top:50px;" >
+終了しました！
+</div>
+
+<script>
+  setTimeout(() => {
+    window.location.href = "<%= result_game_session_path(@game_session) %>";
+  }, 3000); 
+</script>

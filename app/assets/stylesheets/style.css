@@ -5,6 +5,16 @@
     padding: 15px;
     text-align: center;
   }
+  .result-container{
+    margin: 20px auto;
+  padding: 30px;
+  background-color: #f0f8ff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  }
   
   #timer{
     background-color: gray;

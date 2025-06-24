@@ -10,19 +10,20 @@ class GameSessionsController < ApplicationController
 
     #Commandからランダムに５つ選び、Gamesessionに結びつける
     commands = Command.order('RAND()').limit(5)
-    commands.each do |command|
-      @game_session.game_session_commands.create!(command: command)
+    commands.each do |cmd|
+      @game_session.game_session_commands.create!(command: cmd)
     end
     redirect_to game_session_path(@game_session)
   end
 
   def show
     @commands = @game_session.commands
+    @current_index = (params[:index] || 0).to_i
+    @command = @commands[@current_index]
   end
 
   def finish
     @game_session.update(duration: params[:duration])
-    redirect_to result_game_session_path(@game_session)
   end
 
   def result; end

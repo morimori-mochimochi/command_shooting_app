@@ -1,14 +1,16 @@
 <%= render "timer" %>
 
-<% @commands.each do |command| %>
 <h2> このコマンドを入力してください: </h2>
-<p><strong><%= command.body %></strong></p>
-<p><storng><%= command.description %></p>
+<p><strong><%= @command.body %></strong></p>
+<p><storng><%= @command.description %></strong></p>
 
-<input type= "text"
-       data-controller = "answer"
-       data-answer-correct-value = "<%= command.body %>"
+<input type="text"
+       id="answer-input" 
+       data-controller ="answer"
+       data-answer-correct-value="<%= @command.body %>"
+       data-answer-next-url="<%= @commands.size > @current_index +1 ?
+                            game_session_path(@game_session, index: @current_index + 1):
+                            finish_game_session_path(@game_session, duration: 'TBD') %>" 
        data-action="keyup->answer#check" 
-       placeholder = "ここにコマンドを入力..." />  
+       placeholder="ここにコマンドを入力..."/>  
 <p id="result" style="margin-top: 1em; color: green;"></p>
-<% end %>

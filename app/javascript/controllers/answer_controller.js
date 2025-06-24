@@ -5,7 +5,6 @@ export default class extends Controller {
 
   check(event) {
     if (event.target.value.trim() === this.correctValue.trim()) {
-      alert("正解です！");
 
       const timerElement=document.querySelector('[data-controller="timer"]');
       const timerController=this.application.getControllerForElementAndIdentifier(timerElement,"timer");
@@ -13,9 +12,10 @@ export default class extends Controller {
         timerController.stop();
       }
 
-      setTimeout(() => {
-        window.location.reload();
-      }, 1500);
+      const nextUrl = this.element.dataset.answerNextUrl;
+      if (nextUrl){
+        window.location.href = nextUrl;
+      }
     }
   }
 }

@@ -1,0 +1,15 @@
+<h1>
+  只今の
+  <%= user_signed_in? ? current_user.nickname : "あなた" %>
+  の結果は！！！
+</h1>
+<div class="result-container">
+  <%= @game_session.duration %> 秒
+  <p>ログインしてランキングに参加しよう！</p>
+  <%= button_to 'ログイン', new_user_session_path, method: :get, data: { turbo: false } %>
+  <%= button_to 'ランキング', rankings_path, method: :get, data: { turbo: false } %>
+  <%= button_to 'もう一度', new_game_session_path, method: :get, data: { turbo: false } %>
+  <%= button_to 'トップへ', root_path, method: :get, data: { turbo: false } %>
+</div>
+
+         

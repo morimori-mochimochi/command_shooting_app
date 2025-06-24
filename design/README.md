@@ -164,19 +164,9 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
  docker compose run web rails generate controller Rankings index
  docker compose run web rails generate model Game_session value:integer user:references
 
-
- 
-
-<div style="text-align: center; margin-top: 3rem;">
-  <h1 style="font-size: 2rem;">🎮 コマンド早撃ちゲーム</h1>
-  <p>正確なコマンド入力で、タイムを縮めろ！</p>
-
-  <% if user_signed_in? %>
-    <p>ようこそ <%= current_user.nickname %> さん！</p>
-    <%= link_to "▶ ゲームスタート", new_game_session_path, class: "btn btn-primary", style: "margin: 1rem;" %>
-    <%= link_to "📊 ランキング", scores_path, class: "btn btn-secondary" %>
-  <% else %>
-    <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary", style: "margin: 1rem;" %>
-    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary" %>
-  <% end %>
-</div>
+# 必要な修正点
+- [ ]セッション開始と同時にタイマーが始まる
+- [ ]カーソルが自動でフォームに合う
+- [ ]変換予測なし
+- [ ]ログインとログアウトの表示箇所を限定する
+- [ ]Figmaでレイアウト整える
