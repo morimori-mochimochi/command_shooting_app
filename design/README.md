@@ -171,3 +171,4 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
 - [ ]ログインとログアウトの表示箇所を限定する
 - [ ]Figmaでレイアウト整える
 - [ ]ゲストの結果は保存しない
+- [ ]finishからresultに結果が飛んでない

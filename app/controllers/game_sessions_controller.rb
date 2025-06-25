@@ -1,5 +1,5 @@
 class GameSessionsController < ApplicationController
-  before_action :set_game_session, only: [:show, :finish, :result]
+  before_action :set_game_session, only: [:show, :finish, :finished, :result]
   def new
     @game_session = 
     if user_signed_in?
@@ -25,6 +25,8 @@ class GameSessionsController < ApplicationController
   def finish
     @game_session.update(duration: params[:duration])
   end
+
+  def finished; end
 
   def result; end
 

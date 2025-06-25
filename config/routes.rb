@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       get :result
       patch :finish
+      get :finished
     end
   end
   get 'rankings', to: 'rankings#index'

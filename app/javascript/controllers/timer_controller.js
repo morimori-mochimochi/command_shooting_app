@@ -50,8 +50,11 @@ export default class extends Controller {
     })
     .then(response =>{
       if (response.ok) {
-        window.location.href =`/game_sessions/${gameSessionId}/result`
+
+        sessionStorage.removeItem(`startTime-${gameSessionId}`);
+        sessionStorage.removeItem("currentGameSessionId");
+        window.location.href =`/game_sessions/${gameSessionId}/finished`;
       }
-    })
+    });
   }
 }
