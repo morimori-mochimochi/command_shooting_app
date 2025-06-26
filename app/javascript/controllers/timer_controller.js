@@ -36,25 +36,31 @@ export default class extends Controller {
   }
 
   stopAndSendDuration(gameSessionId) {
-    clearTimeout(this.timerId)
+    clearTimeout(this.timerId);
 
     const duration = Date.now() - this.startTime
 
     fetch(`/game_sessions/${gameSessionId}/finish`, {
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
         "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
       },
-      body: JSON.stringify({ duration: duration })
+      body: `duration=${duration}`
     })
     .then(response =>{
       if (response.ok) {
 
         sessionStorage.removeItem(`startTime-${gameSessionId}`);
         sessionStorage.removeItem("currentGameSessionId");
+
         window.location.href =`/game_sessions/${gameSessionId}/finished`;
+      }else{
+        console.error("Failed to save duration");
       }
+    })
+    .catch(error => {
+      console.error("Network error:", error);
     });
   }
 }

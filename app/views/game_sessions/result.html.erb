@@ -4,7 +4,7 @@
   の結果は！！！
 </h1>
 <div class="result-container">
-  <%= @game_session.duration %> 秒
+  <%= number_with_precision(@game_session.duration.to_f / 1000, precision:2) %> 秒
   <p>ログインしてランキングに参加しよう！</p>
   <% unless user_signed_in? %>
     <%= button_to 'ログイン', new_user_session_path, method: :get, data: { turbo: false } %>

@@ -8,11 +8,19 @@ export default class extends Controller {
 
       const timerElement=document.querySelector('[data-controller="timer"]');
       const timerController=this.application.getControllerForElementAndIdentifier(timerElement,"timer");
-      if (timerController && typeof timerController.stop==="function"){
-        timerController.stop();
+      const gameSessionId=timerElement.dataset.gameSessionId;
+      const nextUrl = this.element.dataset.answerNextUrl;
+  
+      const isLastQuestion= nextUrl && !nextUrl.includes("index=");
+
+      if (timerController) {
+        if (isLastQuestion){
+          timerController.stopAndSendDuration(gameSessionId);
+        }else if (typeof timerController.stop ==="function"){
+          timerController.stop();
+        }
       }
 
-      const nextUrl = this.element.dataset.answerNextUrl;
       if (nextUrl){
         window.location.href = nextUrl;
       }

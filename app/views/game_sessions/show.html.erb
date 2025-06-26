@@ -12,5 +12,7 @@
                             game_session_path(@game_session, index: @current_index + 1):
                             finished_game_session_path(@game_session.id) %>" 
        data-action="keyup->answer#check" 
-       placeholder="ここにコマンドを入力..."/>  
+       placeholder="ここにコマンドを入力..."
+       autocomplete ="off"
+       autofocus/>  
 <p id="result" style="margin-top: 1em; color: green;"></p>

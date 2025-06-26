@@ -23,6 +23,7 @@ class GameSessionsController < ApplicationController
   end
 
   def finish
+    puts "[DEBUG] PARAMS: #{params.inspect}"
     @game_session.update(duration: params[:duration])
   end
 
