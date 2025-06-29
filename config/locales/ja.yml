@@ -1,5 +1,15 @@
 ja:
+  errors:
+    messages:
+      not_saved: "保存できませんでした。入力内容を確認してください。"
+      blank: "を入力してください"
+      taken: "はすでに使用されています" 
+      too_short: "パスワードは%{count}文字以上で入力してください"
+
   activerecord:
+    models: 
+      user: "ユーザー"
+
     attributes:
       user:
         nickname: "ニックネーム"
