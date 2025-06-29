@@ -1,17 +1,21 @@
-<h1>
-  只今の
-<%= user_signed_in? ? "#{current_user.nickname}さん" : "あなた" %>
-  の結果は！！！
-</h1>
+<div class="result">
+  <h1>
+    只今の
+  <%= user_signed_in? ? "#{current_user.nickname}さん" : "あなた" %>
+    の結果は！！！
+  </h1>
+</div>
 <div class="result-container">
   <%= number_with_precision(@game_session.duration.to_f / 1000, precision:2) %> 秒
-  <p>ログインしてランキングに参加しよう！</p>
-  <% unless user_signed_in? %>
-    <%= button_to 'ログイン', new_user_session_path, method: :get, data: { turbo: false } %>
-  <% end %>
-  <%= button_to 'ランキング', rankings_path, method: :get, data: { turbo: false } %>
-  <%= button_to 'もう一度', standby_path, method: :get, data: { turbo: false } %>
-  <%= button_to 'トップへ', root_path, method: :get, data: { turbo: false } %>
+  <p class="msg-color">ログインしてランキングに参加しよう！</p>
+  <div class= "button-group">
+    <% unless user_signed_in? %>
+      <%= link_to image_tag("login_button.png", alt: "ログイン", class: "size-button"),new_user_session_path, data: { turbo: false } %>
+    <% end %>
+    <%= link_to image_tag("ranking.png", alt: "ランキング",class: "size-button"), rankings_path, data: { turbo: false } %>
+    <%= link_to image_tag("one_more.png", alt: "もう一度", class: "size-button"), standby_path, data: { turbo: false } %>
+    <%= link_to image_tag("top_button.png", alt: "トップへ",class: "size-button"), root_path, data: { turbo: false } %>
+  </div>
 </div>
 
          

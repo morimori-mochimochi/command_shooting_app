@@ -1,18 +1,23 @@
-<%= render "timer" %>
+<div class= "container">
+  <%= render "timer" %>
 
-<h2> このコマンドを入力してください: </h2>
-<p><strong><%= @command.body %></strong></p>
-<p><storng><%= @command.description %></strong></p>
+  <div class= "show-command">
+    <p><strong><%= @command.body %></strong></p>
+  </div>
+  <div class= "command-description">
+    <p><strong>概要: <%= @command.description %></strong></p>
+  </div>
 
-<input type="text"
-       id="answer-input" 
-       data-controller ="answer"
-       data-answer-correct-value="<%= @command.body %>"
-       data-answer-next-url="<%= @commands.size > @current_index +1 ?
-                            game_session_path(@game_session, index: @current_index + 1):
-                            finished_game_session_path(@game_session.id) %>" 
-       data-action="keyup->answer#check" 
-       placeholder="ここにコマンドを入力..."
-       autocomplete ="off"
-       autofocus/>  
-<p id="result" style="margin-top: 1em; color: green;"></p>
+  <input type="text"
+         id="answer-input" 
+         data-controller ="answer"
+         data-answer-correct-value="<%= @command.body %>"
+         data-answer-next-url="<%= @commands.size > @current_index +1 ?
+                              game_session_path(@game_session, index: @current_index + 1):
+                              finished_game_session_path(@game_session.id) %>" 
+         data-action="keyup->answer#check" 
+         placeholder="ここにコマンドを入力..."
+         autocomplete ="off"
+         autofocus/>  
+  <p id="result" style="margin-top: 1em; color: green;"></p>
+</div>

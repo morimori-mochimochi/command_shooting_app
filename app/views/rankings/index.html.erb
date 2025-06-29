@@ -1,10 +1,16 @@
-<h1>ランキング(1~30位)</h1>
+<div class="ranking container">
+  <h1>ランキング(1~30位)</h1>
 
-<ol>
-<% @scores.each_with_index do |score, index| %>
-  <li>
-    <%= "#{index+1}位: #{score.duration}秒  -#{score.user.nickname}" %>
-  </li>
-<% end %>
-</ol>
+  <div class="ranking-show">
+    <% @scores.each_with_index do |score, index| %>
+      <div>
+        <%= "#{index+1}位: #{number_with_precision(score.duration.to_f / 1000, precision: 2)}秒  -#{score.user&.nickname}" %>
+      </div>  
+    <% end %>
+  </div>
+</div>
 
+<div class="button-group">
+  <%= link_to image_tag("one_more.png", alt: "もう一度", class: "size-button"),standby_path, data: { turbo: false } %>
+  <%= link_to image_tag("top_button.png", alt: "トップへ",class: "size-button"), root_path, data: { turbo: false } %>
+</div>

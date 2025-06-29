@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: "ニックネーム"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認）"
+
+  devise:
+    registrations:
+      new: 
+        characters_minimum: "%{count}文字以上"
+        sign_up: "登録"
+    shared:
+      _links:
+        log_in: "ログイン"
+        sign_up: "新規登録"
+    sessions:
+      new:
+        log_in: "ログイン"
+        

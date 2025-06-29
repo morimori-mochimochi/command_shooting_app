@@ -1,5 +1,5 @@
 class RankingsController < ApplicationController
   def index
-    @scores = GameSession.includes(:user).order(:duration).limit(30)
+    @scores = GameSession.includes(:user).where.not(user_id: nil).order(:duration).limit(30)
   end
 end

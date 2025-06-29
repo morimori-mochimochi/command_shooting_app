@@ -1,1 +1,11 @@
-<%= button_to 'START', new_game_session_path, method: :get, data: { turbo: false } %>
+<div class= "container">
+  <div class= "size-title">
+    *遊び方*<br>
+  </div>
+  <div class= "size-body">
+  <p> Docker, Linux,Gitコマンドをかっこよく早打ちできる人は誰か...<br>そんなNo.1を決めるアプリ👑</p>
+    出題されるコマンドを素早く打ってタイムを競おう！<br>
+    (コマンドは全部で５問出題されます)
+  </div>
+</div>
+<%= link_to image_tag("start_button.png", alt: "スタート", class: "start_button"), new_game_session_path, data: { turbo: false } %>

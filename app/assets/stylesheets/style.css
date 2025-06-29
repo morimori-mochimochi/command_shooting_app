@@ -1,31 +1,32 @@
-.conteiner{
-    margin: 2px auto;
-    width: 270px;
-    background-color:#fff;
+.container {
+    margin: 100px auto;
+    width: 600px;
+    background-color:#f0f8ff;
     padding: 15px;
     text-align: center;
   }
-  .result-container{
-    margin: 20px auto;
-  padding: 30px;
-  background-color: #f0f8ff;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+
+  .result-container {
+    margin: 0 auto 40px;
+    padding: 30px;
+    width: 600px;
+    background-color: #f0f8ff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
   }
   
-  #timer{
-    background-color: gray;
+  #timer {
+    background-color: rgb(138, 159, 183);
     font-size: 40px;
     height: 120px;
     line-height: 120px;
     margin-bottom: 15px;
   }
   
-  
-  .btn{
+  .btn {
     width: 270px;
     height: 45px;
     line-height: 45px;
@@ -33,4 +34,115 @@
     font-weight: bold;
     cursor: pointer;
     user-select: none;
+  }
+
+  .command_shooting_game_logo {
+    position: absolute;
+    width: 132px;
+    height: 119px;
+    left: 87px;
+    top: 56px;
+  }
+
+  .start_button {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+  }
+
+  .size-title {
+    font-size: 30px;
+  }
+  
+  .size-body {
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .login_name {
+    height: auto;
+    position: absolute;
+    top: 185px;
+    left: 87px;
+    font-weight: bold;
+  }
+
+  .show-command {
+    height: auto;
+    font-weight: bold;
+    font-size: 40px;
+  }
+
+  .command-description {
+    height: auto;
+    font-size: 30px;
+  }
+
+  #answer-input {
+    width: 400px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .result {
+    margin: 85px auto;
+    text-align: center;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .size-button {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+  }
+
+  .msg-color {
+    color: rgb(13, 52, 206);
+  }
+
+  .ranking {
+    margin: 40px auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ranking-show {
+    font-size: 30px;
+    text-align: left;
+    width: 600px;
+  }
+
+  .title-logo {
+    width: 400px;
+    height: auto;
+    margin: 40px auto;
+    display: block;
+  }
+
+  .login-form {
+    margin: 40px auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  .top-msg {
+    align-items: center;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
   }
