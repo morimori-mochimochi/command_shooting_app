@@ -9,7 +9,7 @@
   .result-container {
     margin: 0 auto 40px;
     padding: 30px;
-    width: 600px;
+    width: 800px;
     background-color: #f0f8ff;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -144,5 +144,8 @@
     display: flex;
     justify-content: center;
     margin: 0;
-    padding: 0;
+    padding: 20px 40px;
+    position: fixed;
+    top: 50%;
+    left: 25%
   }

@@ -6,7 +6,7 @@
   </h1>
 </div>
 <div class="result-container">
-  <%= number_with_precision(@game_session.duration.to_f / 1000, precision:2) %> 秒
+  <p class="size-title"><%= number_with_precision(@game_session.duration.to_f / 1000, precision:2) %> 秒</p>
   <p class="msg-color">ログインしてランキングに参加しよう！</p>
   <div class= "button-group">
     <% unless user_signed_in? %>
@@ -17,5 +17,3 @@
     <%= link_to image_tag("top_button.png", alt: "トップへ",class: "size-button"), root_path, data: { turbo: false } %>
   </div>
 </div>
-
-         

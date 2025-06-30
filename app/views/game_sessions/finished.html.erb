@@ -1,10 +1,12 @@
-<div id="finish-message" style="text-align:center; font-size:2em; marign-top:50px;" >
-お疲れ様でした！
-現在結果集計中です...
-</div>
+<div class="top-msg">
+  <div id="finish-message">
+  お疲れ様でした！
+  現在結果集計中です...
+  </div>
 
-<script>
-  setTimeout(() => {
-    window.location.href = "<%= result_game_session_path(@game_session) %>";
-  }, 3000); 
-</script>
+  <script>
+    setTimeout(() => {
+      window.location.href = "<%= result_game_session_path(@game_session) %>";
+    }, 3000); 
+  </script>
+</div>
