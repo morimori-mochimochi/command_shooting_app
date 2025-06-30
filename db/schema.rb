@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_19_122737) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_22_090116) do
   create_table "commands", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "body"
     t.string "description"
@@ -18,13 +18,22 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_19_122737) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "scores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "game_session_commands", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "command_id", null: false
+    t.bigint "game_session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["command_id"], name: "index_game_session_commands_on_command_id"
+    t.index ["game_session_id"], name: "index_game_session_commands_on_game_session_id"
+  end
+
+  create_table "game_sessions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "value"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "duration"
-    t.index ["user_id"], name: "index_scores_on_user_id"
+    t.index ["user_id"], name: "index_game_sessions_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -35,9 +44,11 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_19_122737) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "scores", "users"
+  add_foreign_key "game_session_commands", "commands"
+  add_foreign_key "game_sessions", "users"
 end

@@ -26,8 +26,8 @@
 [ログインページ]
 　　← トップ、結果ページから遷移
     ↓
-[新規登録ページ]
-　　← ログインページから遷移
+[新規登録ページ] o
+　　← ログインページから遷移 o
 　　　登録後は自動的にログイン
     ↓
 [スタンバイページ]
@@ -95,13 +95,13 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
 - [o] ストップウォッチで計測
  JavaScript(setinterval)
 
-- [ ] 結果表示(かかった時間)(ランキング)
-  tailwind css
+- [o] 結果表示(かかった時間)(ランキング)
+   css
 
-- [ ] ランキング表示（ログインユーザーのみ）
+- [o] ランキング表示（ログインユーザーのみ）
   Activerecord
 
-- [ ] ゲストプレイ対応（スコア未保存）
+- [o] ゲストプレイ対応（スコア未保存）
   rails
 
 - [o] ユーザー登録 / ログイン機能
@@ -127,33 +127,8 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
 ## 4. モデル構成（ラフ）
 
 - User（id, email, nickname, encrypted_password, created_at, updated_at ）
-- Game_session（id, user_id, duration, play_at, created_at, updated_at）
-- Answer（id, game_session,command_id, user_input, time_taken, created_at, updated_at）
+- Game_session（id, user_id, duration, created_at, updated_at）
+- Game_session_command(id, command_id, game_session_id)
 - Command (id, body, description, created_at, updated_at)
-- Score (id, user_id, game_session_id, duration)
 
 ---
-
-## 5. 検討中の仕様・課題
-
-- ゲストプレイの保存方法（セッション or ローカルストレージ？）
-- タイピング正確さの判定方法（完全一致 or レーベンシュタイン距離？）
-- ランキングは全体 / カテゴリ別？
-- 同じ問題の再出題ロジック
-
----
-
-## 6. 今後の進行ステップ（予定）
-
-1. 技術選定とPoC（Stimulusでタイピング検知できるか）
-2. 最小機能で動くプロトタイプ作成（入力→保存→表示）
-3. UI整備と機能追加
-4. Devise認証 + ランキング導入
-5. デプロイ・公開
-
----
-
-## 7. 備考・その他メモ
-
-- MVP（最小実用アプリ）に集中し、機能を絞る
-- タイピング速度はms単位で記録（10回平均なども検討）

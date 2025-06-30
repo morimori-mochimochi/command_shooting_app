@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ScoreTest < ActiveSupport::TestCase
+class TopControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

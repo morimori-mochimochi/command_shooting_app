@@ -5,17 +5,25 @@ export default class extends Controller {
 
   check(event) {
     if (event.target.value.trim() === this.correctValue.trim()) {
-      alert("正解です！");
 
       const timerElement=document.querySelector('[data-controller="timer"]');
       const timerController=this.application.getControllerForElementAndIdentifier(timerElement,"timer");
-      if (timerController && typeof timerController.stop==="function"){
-        timerController.stop();
+      const gameSessionId=timerElement.dataset.gameSessionId;
+      const nextUrl = this.element.dataset.answerNextUrl;
+  
+      const isLastQuestion= nextUrl && !nextUrl.includes("index=");
+
+      if (timerController) {
+        if (isLastQuestion){
+          timerController.stopAndSendDuration(gameSessionId);
+        }else if (typeof timerController.stop ==="function"){
+          timerController.stop();
+        }
       }
 
-      setTimeout(() => {
-        window.location.reload();
-      }, 1500);
+      if (nextUrl){
+        window.location.href = nextUrl;
+      }
     }
   }
 }
