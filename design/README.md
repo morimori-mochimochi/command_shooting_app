@@ -95,13 +95,13 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
 - [o] ストップウォッチで計測
  JavaScript(setinterval)
 
-- [ ] 結果表示(かかった時間)(ランキング)
-  tailwind css
+- [o] 結果表示(かかった時間)(ランキング)
+   css
 
-- [ ] ランキング表示（ログインユーザーのみ）
+- [o] ランキング表示（ログインユーザーのみ）
   Activerecord
 
-- [ ] ゲストプレイ対応（スコア未保存）
+- [o] ゲストプレイ対応（スコア未保存）
   rails
 
 - [o] ユーザー登録 / ログイン機能
@@ -132,43 +132,3 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
 - Command (id, body, description, created_at, updated_at)
 
 ---
-
-## コントローラの構成
-
-
-## 5. 検討中の仕様・課題
-
-- ゲストプレイの保存方法（セッション or ローカルストレージ？）
-- タイピング正確さの判定方法（完全一致 or レーベンシュタイン距離？）
-- ランキングは全体 / カテゴリ別？
-- 同じ問題の再出題ロジック
-
----
-
-## 6. 今後の進行ステップ（予定）
-
-1. 技術選定とPoC（Stimulusでタイピング検知できるか）
-2. 最小機能で動くプロトタイプ作成（入力→保存→表示）
-3. UI整備と機能追加
-4. Devise認証 + ランキング導入
-5. デプロイ・公開
-
----
-
-## 7. 備考・その他メモ
-
-- MVP（最小実用アプリ）に集中し、機能を絞る
-- タイピング速度はms単位で記録（10回平均なども検討）
-
- docker compose run web rails generate migration AddDurationToScores duration:float
- docker compose run web rails generate controller Rankings index
- docker compose run web rails generate model Game_session value:integer user:references
-
-# 必要な修正点
-- [ ]セッション開始と同時にタイマーが始まる
-- [ ]カーソルが自動でフォームに合う
-- [ ]変換予測なし
-- [ ]ログインとログアウトの表示箇所を限定する
-- [ ]Figmaでレイアウト整える
-- [ ]ゲストの結果は保存しない
-- [ ]finishからresultに結果が飛んでない

@@ -3,6 +3,4 @@ class GameSession < ApplicationRecord
 
   has_many :game_session_commands, dependent: :destroy
   has_many :commands, through: :game_session_commands
-
-  has_one :score
 end
