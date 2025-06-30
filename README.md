@@ -23,4 +23,4 @@ Docker、Linux、Gitコマンドを早打ちしてタイムを競うアプリで
 4. 「ランキング」ボタンを押すと１〜30位までの方の結果が表示されます。
 
 # ER図
-ER図: [
+ER図: [https://raw.githubusercontent.com/morimori-mochimochi/command_shooting_app/refs/heads/main/design/ER_plan.png?token=GHSAT0AAAAAADEBCVSFCFJRDPU3O6WS7BQG2DCG74Q]
