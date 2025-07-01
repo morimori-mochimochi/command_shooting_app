@@ -16,4 +16,4 @@ COPY . .
 # ポート解放
 EXPOSE 3000
 
-CMD ["bash", "-c", "rm -f temp/pids/server.pid && bundle exec rails s -b 0.0.0.0"]
+CMD ["bash", "-c", "rm -f temp/pids/server.pid && RAILS_ENV=production bundle exec rails s -b 0.0.0.0 -p 3000"]
