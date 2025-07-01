@@ -16,6 +16,9 @@ COPY . .
 # ポート解放
 EXPOSE 3000
 
+ARG SECRET_KEY_BASE
+ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
+
 ENV RAILS_ENV=production
 RUN bundle exec rails assets:precompile
 RUN bundle exec rails db:prepare
