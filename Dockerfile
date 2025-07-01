@@ -1,7 +1,7 @@
 FROM ruby:3.4.2
 
 # 必要なパッケージのインストール
-RUN apt-get update -qq && apt-get install -y nodejs npm default-mysql-client && npm install -g yarn
+RUN apt-get update -qq && apt-get install -y nodejs npm postgresql-client && npm install -g yarn
 
 # 作業ディレクトリ作成
 WORKDIR /app
@@ -16,4 +16,4 @@ COPY . .
 # ポート解放
 EXPOSE 3000
 
-CMD ["bash", "-c", "rm -f temp/pids/server.pid", && bundle exec rails s -b 0.0.0.0"]
+CMD ["bash", "-c", "rm -f temp/pids/server.pid && bundle exec rails s -b 0.0.0.0"]
