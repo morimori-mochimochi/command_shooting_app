@@ -16,7 +16,8 @@ COPY . .
 # ポート解放
 EXPOSE 3000
 
-RUN RAILS_ENV=production bundle exec rails assets:precompile
-RUN RAILS_ENV=production bundle exec rails db:prepare
+ENV RAILS_ENV=production
+RUN bundle exec rails assets:precompile
+RUN bundle exec rails db:prepare
 
 CMD ["bash", "-c", "rm -f temp/pids/server.pid && RAILS_ENV=production bundle exec rails s -b 0.0.0.0 -p 3000"]
