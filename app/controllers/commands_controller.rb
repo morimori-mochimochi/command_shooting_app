@@ -8,7 +8,7 @@ class CommandsController < ApplicationController
 
   # GET /commands/1 or /commands/1.json
   def show
-    @command = Command.order("RAND()").first
+    @command = Command.order("RANDOM()").first
   end
 
   # GET /commands/new

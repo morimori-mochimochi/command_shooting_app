@@ -9,7 +9,7 @@ class GameSessionsController < ApplicationController
     end
 
     #Commandからランダムに５つ選び、Gamesessionに結びつける
-    commands = Command.order('RAND()').limit(5)
+    commands = Command.order('RANDOM()').limit(5)
     commands.each do |cmd|
       @game_session.game_session_commands.create!(command: cmd)
     end
