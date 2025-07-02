@@ -25,5 +25,6 @@ ENV DATABASE_URL=${DATABASE_URL}
 ENV RAILS_ENV=production
 RUN bundle exec rails assets:precompile
 RUN bundle exec rails db:prepare
+RUN bundle exec rails db:seed
 
 CMD ["bash", "-c", "rm -f temp/pids/server.pid && RAILS_ENV=production bundle exec rails s -b 0.0.0.0 -p 3000"]
