@@ -23,7 +23,10 @@ ARG DATABASE_URL
 ENV DATABASE_URL=${DATABASE_URL}
 
 ENV RAILS_ENV=production
-RUN bundle exec rails assets:precompile
-RUN bundle exec rails db:prepare
+# ビルド時にはDB接続が不要なため、ダミーの値を渡して assets:precompile を実行する
+# SECRET_KEY_BASEも同様にダミーでよい
+RUN SECRET_KEY_BASE=dummy DATABASE_URL=postgresql://dummy:dummy@dummy/dummy bundle exec rails assets:precompile
 
-CMD ["bash", "-c", "rm -f temp/pids/server.pid && RAILS_ENV=production bundle exec rails s -b 0.0.0.0 -p 3000"]
+# コンテナ起動時(実行時)にDBの準備を行い、サーバーを起動する
+# tmp/pids/server.pid のパスも修正
+CMD ["bash", "-c", "rm -f tmp/pids/server.pid && bundle exec rails db:prepare && bundle exec rails s -b 0.0.0.0 -p 3000"]
