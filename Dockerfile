@@ -16,12 +16,6 @@ COPY . .
 # ポート解放
 EXPOSE 3000
 
-ARG SECRET_KEY_BASE
-ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
-
-ARG DATABASE_URL
-ENV DATABASE_URL=${DATABASE_URL}
-
 ENV RAILS_ENV=production
 # ビルド時にはDB接続が不要なため、ダミーの値を渡して assets:precompile を実行する
 # SECRET_KEY_BASEも同様にダミーでよい
