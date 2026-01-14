@@ -63,9 +63,10 @@
   .login_name {
     height: auto;
     position: absolute;
-    top: 185px;
-    left: 87px;
+    top: 70px;
+    left: 70px;
     font-weight: bold;
+    font-size: 20px;
   }
 
   .show-command {
@@ -92,9 +93,8 @@
 
   .button-group {
     display: flex;
-    gap: 12px;
+    gap: 5px;
     justify-content: center;
-    margin-top: 20px;
   }
 
   .size-button {
@@ -125,7 +125,7 @@
   .title-logo {
     width: 400px;
     height: auto;
-    margin: 40px auto;
+    margin: 100px auto;
     display: block;
   }
 
