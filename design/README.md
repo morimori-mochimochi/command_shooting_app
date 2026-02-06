@@ -117,7 +117,7 @@ https://qiita.com/mailok1212/items/360d15eeab3bf9465f42
 | バックエンド | Ruby on Rails |
 | DB | MySQL |
 | 認証 | Devise |
-| UIライブラリ | Tailwind CSS（予定） |
+| UIライブラリ | CSS |
 | 開発環境 | Docker / docker-compose |
 | デプロイ | 未定（Render or Railway候補） |
 
