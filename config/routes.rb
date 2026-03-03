@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "top#index"
 
   get 'standby', to: 'top#standby'
-  resources :game_sessions, only: [:new, :show] do
+  resources :game_sessions, only: [:create, :show] do
     member do
       get :result
       patch :finish
