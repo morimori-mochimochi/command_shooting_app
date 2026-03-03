@@ -1,6 +1,6 @@
 class GameSessionsController < ApplicationController
   before_action :set_game_session, only: [:show, :finish, :finished, :result]
-  def new
+  def create
     @game_session = 
     if user_signed_in?
       current_user.game_sessions.create!
@@ -9,10 +9,9 @@ class GameSessionsController < ApplicationController
     end
 
     #Commandからランダムに５つ選び、Gamesessionに結びつける
-    commands = Command.order('RANDOM()').limit(5)
-    commands.each do |cmd|
-      @game_session.game_session_commands.create!(command: cmd)
-    end
+    command_ids = Command.pluck(:id).sample(5)
+    @game_session.update!(command_ids: command_ids)
+
     redirect_to game_session_path(@game_session)
   end
 
