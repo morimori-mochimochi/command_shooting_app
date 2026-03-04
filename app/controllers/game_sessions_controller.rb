@@ -8,8 +8,12 @@ class GameSessionsController < ApplicationController
       GameSession.create!
     end
 
-    #Commandからランダムに５つ選び、Gamesessionに結びつける
-    command_ids = Command.pluck(:id).sample(5)
+    # Commandからランダムに５つ選び、Gamesessionに結びつける
+    # pluck: commandsテーブルの全てのレコードから:idカラムの値だけを取り出して配列として返す
+    # command_ids = Command.pluck(:id).sample(5) <-これは非効率的なので書き換える
+
+    # DBでランダムに５件取得することで全IDをメモリにロードするのを防ぐ
+    command_ids = Command.order("RANDOM()").limit(5).pluck(:id)
     @game_session.update!(command_ids: command_ids)
 
     redirect_to game_session_path(@game_session)
