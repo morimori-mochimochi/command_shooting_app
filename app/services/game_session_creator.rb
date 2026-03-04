@@ -17,7 +17,8 @@ class GameSessionCreator
 
   def setup_commands(game_session)
     # Comandsからランダムに５つ選択してGamesessionsに結びつける
-    command_ids = Command.pluck(:id).sample(5)
+    # DB側でランダムに5件取得することで、全IDをメモリにロードするのを防ぎ、パフォーマンスを向上させます。
+    command_ids = Command.order("RANDOM()").limit(5).pluck(:id)
     game_session.update!(command_ids: command_ids)
   end
 end
