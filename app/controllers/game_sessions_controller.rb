@@ -1,16 +1,8 @@
 class GameSessionsController < ApplicationController
   before_action :set_game_session, only: [:show, :finish, :finished, :result]
   def create
-    @game_session = 
-    if user_signed_in?
-      current_user.game_sessions.create!
-    else
-      GameSession.create!
-    end
-
-    #Commandからランダムに５つ選び、Gamesessionに結びつける
-    command_ids = Command.pluck(:id).sample(5)
-    @game_session.update!(command_ids: command_ids)
+    # GameSessionCreatorサービスを使ってゲームセッションの作成ロジックを呼び出す
+    @game_session = GameSessionCreator.new(user: current_user).call
 
     redirect_to game_session_path(@game_session)
   end
