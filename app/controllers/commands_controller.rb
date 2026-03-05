@@ -1,5 +1,5 @@
 class CommandsController < ApplicationController
-  before_action :set_command, only: %i[ edit update destroy ]
+  before_action :set_command, only: %i[ show edit update destroy ]
 
   # GET /commands or /commands.json
   def index
@@ -8,7 +8,6 @@ class CommandsController < ApplicationController
 
   # GET /commands/1 or /commands/1.json
   def show
-    @command = Command.order("RANDOM()").first
   end
 
   # GET /commands/new
